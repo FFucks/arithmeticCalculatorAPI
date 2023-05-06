@@ -1,0 +1,26 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  restTemplate:
+    messageConverters:
+      - jackson
+      - xml
+    requestFactory:
+      timeout: 5000
+  datasource:
+    url: jdbc:postgresql://localhost:5432/calculator
+    username: postgres
+    password: admin123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  address: localhost
+  port: 8080
+
+client:
+  randomOrg:
+    url: https://www.random.org/strings/?num=1&len=10&digits=on&unique=on&format=plain&rnd=new
