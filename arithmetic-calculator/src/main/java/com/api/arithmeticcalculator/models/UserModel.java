@@ -1,10 +1,10 @@
 package com.api.arithmeticcalculator.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.UUID;

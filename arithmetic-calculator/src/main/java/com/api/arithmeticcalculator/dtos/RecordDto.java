@@ -1,7 +1,7 @@
 package com.api.arithmeticcalculator.dtos;
 
-import jakarta.persistence.Column;
 
+import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.util.UUID;
 

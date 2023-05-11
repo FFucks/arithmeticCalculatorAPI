@@ -2,12 +2,12 @@ package com.api.arithmeticcalculator.controllers;
 
 import com.api.arithmeticcalculator.dtos.CalculateDto;
 import com.api.arithmeticcalculator.services.ArithmeticCalculatorService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.math.BigDecimal;
 
 @Controller

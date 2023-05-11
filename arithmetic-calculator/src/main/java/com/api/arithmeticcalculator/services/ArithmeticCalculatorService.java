@@ -42,16 +42,26 @@ public class ArithmeticCalculatorService {
 
 
         switch (type) {
-            case "addition" -> result = firstNumber.add(secondNumber);
-            case "subtraction" -> result = firstNumber.subtract(secondNumber);
-            case "multiplication" -> result = firstNumber.multiply(secondNumber);
-            case "division" ->
-                    result = firstNumber.divide(secondNumber, RoundingMode.HALF_DOWN).setScale(2, RoundingMode.HALF_DOWN);
-            case "square_root" -> result = firstNumber.sqrt(MathContext.DECIMAL64);
-            case "random_string" -> result = new BigDecimal(randomApiService.findRandomNumber());
-            default -> {
+            case "addition":
+                result = firstNumber.add(secondNumber);
+                break;
+            case "subtraction":
+                result = firstNumber.subtract(secondNumber);
+                break;
+            case "multiplication":
+                result = firstNumber.multiply(secondNumber);
+                break;
+            case "division":
+                result = firstNumber.divide(secondNumber, RoundingMode.HALF_DOWN).setScale(2, RoundingMode.HALF_DOWN);
+                break;
+            case "square_root":
+                result = firstNumber.sqrt(MathContext.DECIMAL64);
+                break;
+            case "random_string":
+                result = new BigDecimal(randomApiService.findRandomNumber());
+                break;
+            default:
                 throw new Exception("Operation type does not exist");
-            }
         }
 
         calculateDto.setResult(result);

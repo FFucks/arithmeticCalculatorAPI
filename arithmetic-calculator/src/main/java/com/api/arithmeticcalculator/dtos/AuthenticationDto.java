@@ -1,8 +1,9 @@
 package com.api.arithmeticcalculator.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 public class AuthenticationDto {
 

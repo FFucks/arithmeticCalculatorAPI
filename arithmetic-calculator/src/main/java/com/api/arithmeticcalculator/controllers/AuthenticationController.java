@@ -5,11 +5,12 @@ import com.api.arithmeticcalculator.dtos.AuthenticationDto;
 import com.api.arithmeticcalculator.dtos.TokenDto;
 import com.api.arithmeticcalculator.models.UserModel;
 import com.api.arithmeticcalculator.services.AuthenticationService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @CrossOrigin(origins = "*", maxAge = 3600)

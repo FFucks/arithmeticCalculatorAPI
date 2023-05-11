@@ -1,7 +1,7 @@
 package com.api.arithmeticcalculator.models;
 
-import jakarta.persistence.*;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 

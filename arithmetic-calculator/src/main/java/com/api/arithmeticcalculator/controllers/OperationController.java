@@ -2,12 +2,12 @@ package com.api.arithmeticcalculator.controllers;
 
 import com.api.arithmeticcalculator.models.OperationModel;
 import com.api.arithmeticcalculator.services.OperationService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @Controller
