@@ -1,22 +1,12 @@
-package com.api.arithmeticcalculator.models;
+package com.api.arithmeticcalculator.dtos;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Entity
-@Table(name = "record")
-public class RecordModel implements Serializable {
-
-    private static final Long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
+public class RecordDto {
     private UUID id;
-
     @Column(name = "operation_id")
     private UUID operationId;
 
@@ -34,6 +24,7 @@ public class RecordModel implements Serializable {
 
     @Column(name = "date")
     private String date;
+    private String type;
 
     public UUID getId() {
         return id;
@@ -89,5 +80,13 @@ public class RecordModel implements Serializable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

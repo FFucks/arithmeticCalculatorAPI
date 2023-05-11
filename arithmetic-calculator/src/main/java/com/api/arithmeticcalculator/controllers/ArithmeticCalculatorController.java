@@ -23,16 +23,21 @@ public class ArithmeticCalculatorController {
     }
 
     @PostMapping("/calculate")
-    public ResponseEntity<CalculateDto> calculate(@RequestHeader("userId") String userId,
-                                                  @RequestHeader("userBalance") Integer userBalance,
-                                                  @PathParam("firstNumber") BigDecimal firstNumber,
-                                                  @PathParam("secondNumber") BigDecimal secondNumber,
-                                                  @PathParam("type") String type) {
-        CalculateDto response = arithmeticCalculatorService.calculate(userId, userBalance,
-                                                                      firstNumber, secondNumber, type);
+    public ResponseEntity<Object> calculate(@PathParam("firstNumber") BigDecimal firstNumber,
+                                            @PathParam("secondNumber") BigDecimal secondNumber,
+                                            @PathParam("type") String type,
+                                            @RequestHeader("userBalance") Integer userBalance,
+                                            @RequestHeader("userId") String userId) {
+        try {
+            CalculateDto response = arithmeticCalculatorService.calculate(firstNumber, secondNumber, type, userBalance, userId);
 
-        return  response != null
-                ? ResponseEntity.status(HttpStatus.OK).body(response)
-                : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            return  response != null
+                    ? ResponseEntity.status(HttpStatus.OK).body(response)
+                    : ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Insuficient Balance");
+
+        } catch (Exception e) {
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        return null;
     }
 }

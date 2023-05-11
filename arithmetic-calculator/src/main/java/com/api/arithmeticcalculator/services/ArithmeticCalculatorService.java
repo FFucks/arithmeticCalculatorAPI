@@ -25,8 +25,21 @@ public class ArithmeticCalculatorService {
         this.operationService = operationService;
     }
 
-    public CalculateDto calculate(String userId, Integer userBalance, BigDecimal firstNumber, BigDecimal secondNumber, String type) {
+    public CalculateDto calculate(BigDecimal firstNumber, BigDecimal secondNumber, String type,
+                                  Integer userBalance, String userId) throws Exception {
         BigDecimal result;
+        CalculateDto calculateDto = new CalculateDto();
+
+        OperationModel operationModel = operationService.getOperationByType(type);
+        if (operationModel != null) {
+            if (operationModel.getCost() > userBalance) {
+                return null;
+            }
+
+            userBalance -= operationModel.getCost();
+            calculateDto.setUserBalance(userBalance);
+        }
+
 
         switch (type) {
             case "addition" -> result = firstNumber.add(secondNumber);
@@ -37,18 +50,11 @@ public class ArithmeticCalculatorService {
             case "square_root" -> result = firstNumber.sqrt(MathContext.DECIMAL64);
             case "random_string" -> result = new BigDecimal(randomApiService.findRandomNumber());
             default -> {
-                return null;
+                throw new Exception("Operation type does not exist");
             }
         }
 
-        OperationModel operationModel = operationService.getOperationByType(type);
-        CalculateDto calculateDto = new CalculateDto();
         calculateDto.setResult(result);
-        if (operationModel != null) {
-            userBalance -= operationModel.getCost();
-
-        }
-
         calculateDto.setUserBalance(userBalance);
         addToRecord(userId, userBalance, result, operationModel);
 

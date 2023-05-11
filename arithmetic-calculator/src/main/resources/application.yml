@@ -1,4 +1,9 @@
 spring:
+  mvc:
+    cors:
+      allowed-origins: "*"
+      allowed-methods: GET, POST, PATCH, PUT, DELETE
+      allowed-headers: "*"
   main:
     allow-bean-definition-overriding: true
   restTemplate:
@@ -19,7 +24,7 @@ spring:
 
 server:
   address: localhost
-  port: 8080
+  port: 8081
 
 client:
   randomOrg:

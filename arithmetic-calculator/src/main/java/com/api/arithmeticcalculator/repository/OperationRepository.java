@@ -5,6 +5,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -14,6 +15,6 @@ public interface OperationRepository extends JpaRepository<OperationModel, UUID>
     Integer deleteByType(String type);
 
     @Transactional
-    OperationModel getOperationByType(String type);
+    Optional<OperationModel> getOperationByType(String type);
 
 }

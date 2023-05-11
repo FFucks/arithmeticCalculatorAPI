@@ -43,6 +43,6 @@ public class OperationService {
     }
 
     public OperationModel getOperationByType(String type) {
-        return operationRepository.getOperationByType(type);
+        return operationRepository.getOperationByType(type).orElse(null);
     }
 }
