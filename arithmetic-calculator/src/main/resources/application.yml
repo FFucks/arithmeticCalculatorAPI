@@ -30,6 +30,7 @@ logging:
         type: trace
 
 server:
+  ipv4-stack: true
   address: localhost
   port: 8080
 
